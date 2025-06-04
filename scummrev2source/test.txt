@@ -1,0 +1,31 @@
+Delphi for Win32  Version 10.0  Copyright (c) 1983,97 Borland International
+SCUMMRev.dpr(1) main.pas(1)     chunkspecs.pas(1) chunkspecs.pas(8) chunkspecs.pas(512) chunkspecs.pas(876) 
+analyze.pas(1) analyze.pas(8) Preanalyze.pas(1) Preanalyze.pas(8) spec.pas(1)       specform.pas(1) imagdec.pas(1)  imagdec.pas(8) specform.pas(10) spec.pas(8)      main.pas(11) hexview.pas(1) hexview.pas(9) hexview.pas(79) hexview.pas(283) 
+flash.pas(1) flash.pas(7) flash.pas(15) flash.pas(270) 
+main.pas(220) main.pas(512) main.pas(1013) 
+spec.pas(71) spec.pas(512) spec.pas(769) 
+spec.pas(62) Hint: Private symbol 'ShowSpec3' declared but never used
+Lechuck.pas(1) Lechuck.pas(10) Lechuck.pas(282) 
+unlua.pas(1) unlua.pas(8) unlua.pas(57) unlua.pas(70) Error: Undeclared identifier: 'n'
+unlua.pas(84) Error: Undeclared identifier: 'LoadLong'
+unlua.pas(86) Error: Undeclared identifier: 'LuaOffs'
+unlua.pas(90) Error: Undeclared identifier: 'LoadString'
+unlua.pas(95) Error: Undeclared identifier: 'LoadWord'
+unlua.pas(98) Error: Undeclared identifier: 'n'
+unlua.pas(100) Error: Undeclared identifier: 'LuaOffs'
+unlua.pas(106) Error: ';' or ')' expected but ',' found
+unlua.pas(108) Error: Undeclared identifier: 'LuaOffs'
+unlua.pas(113) Error: Undeclared identifier: 'LoadCode'
+unlua.pas(124) Error: Undeclared identifier: 'LoadLocals'
+unlua.pas(129) Error: Undeclared identifier: 'NoOfLocals'
+unlua.pas(129) Error: Undeclared identifier: 'LoadWord'
+unlua.pas(137) Error: Undeclared identifier: 'ProtoFunc'
+unlua.pas(137) Error: Missing operator or semicolon
+unlua.pas(216) Error: Incompatible types
+unlua.pas(218) Error: Undeclared identifier: 'n'
+unlua.pas(220) Error: Undeclared identifier: 'Spec1ListBox'
+unlua.pas(220) Error: Missing operator or semicolon
+unlua.pas(220) Error: Record, object or class type required
+unlua.pas(223) Error: '.' expected but ';' found
+unlua.pas(226) 
+specform.pas(156) Fatal: Could not compile used unit 'Unlua.pas'

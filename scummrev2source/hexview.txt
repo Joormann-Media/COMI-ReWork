@@ -1,0 +1,186 @@
+object HexForm: THexForm
+  Left = 20
+  Top = 120
+  Width = 610
+  Height = 400
+  Caption = 'HexView'
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  PixelsPerInch = 96
+  TextHeight = 13
+  Menu = HexMainMenu
+  OnCreate = FormCreate
+  object StatusBar: TDFSStatusBar
+    Align = alBottom
+    SizeGrip = false
+    Panels = <
+      item
+        Alignment = taLeftJustify
+        PanelType = sptNormal
+        Text = 'Block Offset:'
+        Width = 240
+      end
+      item
+        Alignment = taLeftJustify
+        PanelType = sptNormal
+        Text = 'File Offset:'
+        Width = 240
+      end
+      item
+        Alignment = taCenter
+        PanelType = sptNormal
+        Text = 'BE'
+        Width = 25
+      end
+      item
+        Alignment = taCenter
+        PanelType = sptNormal
+        Text =''
+        Width = 25
+      end
+      item
+        Alignment = taLeftJustify
+        PanelType = sptNormal
+        Text = ''
+        Width = 25
+      end
+      >
+  end
+  object InfoPanel: TPanel
+    Align = alClient
+    OnResize = InfoPanelResize
+    object SpecHexEdit: THexEditor
+      Align = alTop
+      Font.Height = -10
+      Colors.Background = clBtnFace
+      OnStateChanged = HexEditStateChanged
+    end
+    object HexTitleLabel: TLabel
+      Left = 8
+      Top = 4
+      Caption = 'Hex:'
+    end
+    object HexLabel: TLabel
+      Left = 100
+      Top = 4
+      Caption = 'n/a'
+      Font.Name = 'Courier New'
+    end
+    object DecTitleLabel: TLabel
+      Left = 8
+      Top = 20
+      Caption = 'Decimal:'
+    end
+    object DecLabel: TLabel
+      Left = 100
+      Top = 20
+      Caption = 'n/a'
+      Font.Name = 'Courier New'
+    end
+    object BinTitleLabel: TLabel
+      Left = 8
+      Top = 36
+      Caption = 'Binary:'
+    end
+    object BinLabel: TLabel
+      Left = 100
+      Top = 36
+      Caption = 'n/a'
+      Font.Name = 'Courier New'
+    end
+  end
+  object HexMainMenu: TMainMenu
+    Left = 496
+    Top = 288
+    object ViewItem: TMenuItem
+      Caption = '&View'
+      object ViewDivsItem: TMenuItem
+        Caption = '&Divisions'
+        object ViewDivsByteItem: TMenuItem
+          Caption = '&Byte'
+          OnClick = ViewDivsByteItemClick
+        end
+        object ViewDivsWordItem: TMenuItem
+          Caption = '&Word'
+          Checked = True
+          OnClick = ViewDivsWordItemClick
+        end
+        object ViewDivsDWordItem: TMenuItem
+          Caption = '&DWord'
+          OnClick = ViewDivsDWordItemClick
+        end
+        object ViewDivsQWordItem: TMenuItem
+          Caption = '&QWord'
+          OnClick = ViewDivsQWordItemClick
+        end
+        object ViewDivsNoneItem: TMenuItem
+          Caption = '&None'
+          OnClick = ViewDivsNoneItemClick
+        end
+      end
+      object ViewOffsetItem: TMenuItem
+        Caption = '&Offset Display'
+        object ViewOffsetHexItem: TMenuItem
+          Caption = '&Hex'
+          Checked = True
+          OnClick = ViewOffsetHexItemClick
+        end
+        object ViewOffsetDecItem: TMenuItem
+          Caption = '&Decimal'
+          OnClick = ViewOffsetDecItemClick
+        end
+        object ViewOffsetNoneItem: TMenuItem
+          Caption = '&None'
+          OnClick = ViewOffsetNoneItemClick
+        end
+      end
+      object ViewCharSetItem: TMenuItem
+        Caption = '&Charset'
+        object ViewCharSetASCII7Item: TMenuItem
+          Caption = '&Standard 7 bit ASCII'
+          OnClick = ViewCharSetASCII7ItemClick
+        end
+        object ViewCharSetASCII8Item: TMenuItem
+          Caption = '&DOS 8 bit ASCII'
+          OnClick = ViewCharSetASCII8ItemClick
+        end
+        object ViewCharSetWindowsItem: TMenuItem
+          Caption = '&Windows ANSI'
+          Checked = True
+          OnClick = ViewCharSetWindowsItemClick
+        end
+        object N1: TMenuItem
+          Caption = '-'
+        end
+        object ViewCharSetMaskItem: TMenuItem
+          Caption = '&Mask Whitespaces'
+          Checked = True
+          OnClick = ViewCharSetMaskItemClick
+        end
+      end
+      object ViewConvItem: TMenuItem
+        Caption = '&Conversions'
+        object ViewConvBigEndianItem: TMenuItem
+          Caption = '&Big Endian'
+          OnClick = ViewConvBigEndianItemClick
+          Checked = true
+        end
+        object ViewConvSignedItem: TMenuItem
+          Caption = '&Signed'
+          OnClick = ViewConvSignedItemClick
+        end
+      end
+    end
+    object SearchItem: TMenuItem
+      Caption = '&Search'
+      object SearchGotoItem: TMenuItem
+        Caption = '&Goto...'
+        ShortCut = 16455
+        OnClick = SearchGotoItemClick
+      end
+    end
+  end
+end

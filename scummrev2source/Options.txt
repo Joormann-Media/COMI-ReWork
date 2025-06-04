@@ -1,0 +1,175 @@
+object OptionsForm: TOptionsForm
+  Left = 130
+  Top = 124
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Options'
+  ClientWidth = 350
+  ClientHeight = 210
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object OptionPages: TPageControl
+    Left = 0
+    Top = 0
+    Width = 350
+    Height = 170
+    ActivePage = PerformancePage
+    Align = alTop
+    TabOrder = 0
+    object PerformancePage: TTabSheet
+      Caption = 'Performance'
+      object TestBigChildrenCheckBox: TCheckBox
+        Left = 8
+        Top = 8
+        Width = 161
+        Height = 17
+        Caption = 'Large Directory Child Check'
+        TabOrder = 0
+      end
+      object UseAnnotationsCheckBox: TCheckBox
+        Left = 8
+        Top = 24
+        Width = 113
+        Height = 17
+        Caption = 'Use Annotations'
+        TabOrder = 1
+      end
+      object UseFlashFilesCheckBox: TCheckBox
+        Left = 8
+        Top = 40
+        Width = 113
+        Height = 17
+        Caption = 'Use Flash Files'
+        TabOrder = 2
+      end
+      object ShowProgressCheckBox: TCheckBox
+        Left = 8
+        Top = 56
+        Width = 113
+        Height = 17
+        Caption = 'Show Progress'
+        TabOrder = 2
+      end
+      object UseExDecompCheckBox: TCheckBox
+        Left = 8
+        Top = 72
+        Width = 200
+        Height = 17
+        Caption = 'Use Experimental Codecs'
+        TabOrder = 3
+      end
+      object SearchPriorityLabel: TLabel
+        Left = 8
+        Top  = 100
+        AutoSize = True
+        Height = 13
+        Caption = 'Search Priority'
+      end
+      object SearchPriorityTrackBar: TVolTrackBar
+        Left = 100
+        Top = 96
+        Height = 30
+        Width = 150
+        Min = 0
+        Max = 6
+        PageSize = 1
+        Orientation = trHorizontal
+        Frequency = 1
+        TickMarks = tmBottomRight
+        TickStyle = tsAuto
+        TabOrder = 4
+        OnChange = SearchPriorityTrackBarChange
+      end
+      object SearchPriorityResultLabel: TLabel
+        Left = 260
+        Top  = 100
+        AutoSize = True
+        Height = 13
+        Caption = 'n/a'
+      end
+    end
+    object AppearancePage: TTabSheet
+      Caption = 'Appearance'
+      object SaveLayoutCheckBox: TCheckBox
+        Left = 8
+        Top = 8
+        Width = 161
+        Height = 17
+        Caption = 'Save Layout'
+        TabOrder = 0
+      end
+      object UseIconsCheckBox: TCheckBox
+        Left = 8
+        Top = 24
+        Width = 137
+        Height = 17
+        Caption = 'Show Resource Icons'
+        TabOrder = 1
+      end
+    end
+    object InstallationPage: TTabSheet
+      Caption = 'Installation'
+      object DesktopIconButton: TButton
+        Left = 8
+        Top = 8
+        Width = 161
+        Height = 25
+        Caption = 'Create Desktop Icon'
+        TabOrder = 0
+        OnClick = DeskTopIconButtonClick
+      end
+      object StartIconButton: TButton
+        Left = 8
+        Top = 38
+        Width = 161
+        Height = 25
+        Caption = 'Create Start Menu Icons'
+        TabOrder = 1
+        OnClick = StartIconButtonClick
+      end
+      object UninstallButton: TButton
+        Left = 8
+        Top = 110
+        Width = 161
+        Height = 25
+        Caption = 'Uninstall!'
+        TabOrder = 2
+        OnClick = UninstallButtonClick
+      end
+    end
+  end
+  object OKButton: TButton
+    Left = 100
+    Top = 180
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    TabOrder = 1
+    OnClick = OKButtonClick
+  end
+  object ApplyButton: TButton
+    Left = 185
+    Top = 180
+    Width = 75
+    Height = 25
+    Caption = 'Apply'
+    TabOrder = 3
+    OnClick = ApplyButtonClick
+  end
+  object CancelButton: TButton
+    Left = 270
+    Top = 180
+    Width = 75
+    Height = 25
+    Cancel = True
+    Caption = 'Cancel'
+    TabOrder = 2
+    OnClick = CancelButtonClick
+  end
+end

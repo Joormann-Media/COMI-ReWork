@@ -1,0 +1,311 @@
+object SpecInfoForm: TSpecInfoForm
+  Left = 200
+  Top = 131
+  Width = 435
+  Height = 300
+  Caption = 'n/a'
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OnCreate = FormCreate
+  OnHide = FormHide
+  PixelsPerInch = 96
+  TextHeight = 13
+  KeyPreview = true
+
+  Menu = MainMenu
+  object MainMenu: TMainMenu
+    Left = 120
+    Top = 80
+    object FileItem: TMenuItem
+      Caption = '&File'
+      object FileSaveAsItem: TMenuItem
+        Caption = 'Save &As...'
+        ShortCut = 16467
+        Visible = false
+      end
+      object FileCloseItem: TMenuItem
+        Caption = '&Close'
+        OnClick = FileCloseItemClick
+      end
+    end
+    object EditItem: TMenuItem
+      Caption = '&Edit'
+      Visible = false
+      object EditCopyItem: TMenuItem
+        Caption = '&Copy'
+        ShortCut = 16451
+      end
+    end
+    object ViewItem: TMenuItem
+      Caption = '&View'
+      Visible = false
+      object ViewProjectItem: TMenuItem
+        Caption = '&Background'
+        Visible = false
+        OnClick = ViewProjectItemClick
+      end
+      object ViewZBufferItem: TMenuItem
+        Caption = 'Z-&Buffer'
+        Visible = false
+        OnClick = ViewZBufferItemClick
+      end
+      object ViewZoomItem: TMenuItem
+        Caption = '&Zoom'
+        Visible = false
+        object ViewZoom50Item: TMenuItem
+          Caption = '&50%'
+          OnClick = ViewZoom50ItemClick
+        end
+        object ViewZoom100Item: TMenuItem
+          Caption = '&100%'
+          OnClick = ViewZoom100ItemClick
+          Checked = true
+        end
+        object ViewZoom200Item: TMenuItem
+          Caption = '&200%'
+          OnClick = ViewZoom200ItemClick
+        end
+      end
+    end
+    object ImagesItem: TMenuItem
+      Caption = '&Images'
+      Visible = false
+    end
+    object PalettesItem: TMenuItem
+      Caption = '&Palettes'
+      Visible = false
+      object PalettesAmigaItem: TMenuItem
+        Caption = '&Amiga Image'
+        OnClick = PalettesAmigaItemClick
+      end
+    end
+  end
+  object ImageSplitter: TAdvSplitter
+    Left = 160
+    Top = 80
+    Width = 193
+    Height = 161
+    AutoUpdate = False
+    BorderStyle = bsNone
+    Orientation = soVertical
+    ProportionalResize = False
+    Position = 130
+    SplitterColor = clBtnFace
+    SplitterStyle = ssCheckered
+    Thickness = 4
+    Ctl3D = True
+    ParentCtl3D = False
+    OnResize = ImageSplitterResize
+    object TAdvPane
+      Tag = 1
+      FrameStyle = ftNone
+      MinSize = 120
+      object ImageScrollBox: TScrollBox
+        Left = 0
+        Top = 0
+        Width = 65
+        Height = 161
+        Align = alClient
+        TabOrder = 0
+        object Spec1Image: TImage
+          Left = 0
+          Top = 0
+          Width = 105
+          Height = 105
+        end
+        object Spec1Image24Bit: TImage
+          Left = 0
+          Top = 0
+          Width = 105
+          Height = 105
+        end
+        object Spec1Image16Bit: TImage
+          Left = 0
+          Top = 0
+          Width = 105
+          Height = 105
+        end
+      end
+    end
+    object TAdvPane
+      Tag = 2
+      FrameStyle = ftNone
+      MinSize = 160
+      object ImageInfoSplitter: TAdvSplitter
+        Align = alClient
+        AutoUpdate = False
+        BorderStyle = bsNone
+        Orientation = soHorizontal
+        ProportionalResize = False
+        Position = 65
+        SplitterColor = clBtnFace
+        SplitterStyle = ssCheckered
+        Thickness = 4
+        Ctl3D = True
+        ParentCtl3D = False
+        OnResize = ImageSplitterResize
+        object TAdvPane
+          Tag = 1
+          FrameStyle = ftNone
+          MinSize = 10
+          object ImageListBox: TListBox
+            Left = 0
+            Top = 0
+            Width = 124
+            Height = 161
+            Align = alClient
+            ItemHeight = 13
+            TabOrder = 0
+          end
+        end
+        object TAdvPane
+          Tag = 2
+          FrameStyle = ftNone
+          MinSize = 10
+          object ImageInfoGroupBox: TGroupBox
+            Align = alClient
+            Caption = 'Box info'
+            object P1TitleLabel: TLabel
+              Left = 10
+              Top = 14
+              Caption = 'P1:'
+            end
+            object P2TitleLabel: TLabel
+              Left = 10
+              Top = 30
+              Caption = 'P2:'
+            end
+            object P3TitleLabel: TLabel
+              Left = 10
+              Top = 46
+              Caption = 'P3:'
+            end
+            object P4TitleLabel: TLabel
+              Left = 10
+              Top = 62
+              Caption = 'P4:'
+            end
+            object P1Label: TLabel
+              Left = 65
+              Top = 14
+              Caption = 'n/a'
+            end
+            object P2Label: TLabel
+              Left = 65
+              Top = 30
+              Caption = 'n/a'
+            end
+            object P3Label: TLabel
+              Left = 65
+              Top = 46
+              Caption = 'n/a'
+            end
+            object P4Label: TLabel
+              Left = 65
+              Top = 62
+              Caption = 'n/a'
+            end
+            object Param1TitleLabel: TLabel
+              Left = 10
+              Top = 78
+              Caption = 'Param 1:'
+            end
+            object Param2TitleLabel: TLabel
+              Left = 10
+              Top = 94
+              Caption = 'Param 2:'
+            end
+            object Param3TitleLabel: TLabel
+              Left = 10
+              Top = 110
+              Caption = 'Param 3:'
+              Visible = false
+            end
+            object Param4TitleLabel: TLabel
+              Left = 10
+              Top = 126
+              Caption = 'Param 4:'
+              Visible = false
+            end
+            object Param5TitleLabel: TLabel
+              Left = 10
+              Top = 142
+              Caption = 'Param 5:'
+              Visible = false
+            end
+            object Param1Label: TLabel
+              Left = 65
+              Top = 78
+              Caption = 'n/a'
+            end
+            object Param2Label: TLabel
+              Left = 65
+              Top = 94
+              Caption = 'n/a'
+            end
+            object Param3Label: TLabel
+              Left = 65
+              Top = 110
+              Caption = 'n/a'
+              Visible = false
+            end
+            object Param4Label: TLabel
+              Left = 65
+              Top = 126
+              Caption = 'n/a'
+              Visible = false
+            end
+            object Param5Label: TLabel
+              Left = 65
+              Top = 142
+              Caption = 'n/a'
+              Visible = false
+            end
+          end
+        end
+      end
+    end
+  end
+  object SpecInfoListBox: TTabsListBox
+    Left = 32
+    Top = 80
+    Width = 121
+    Height = 97
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = []
+    ItemHeight = 14
+    ParentFont = False
+    TabOrder = 1
+    TabWidth = 100
+  end
+  object SpecInfoRichEdit: TRichEdit
+    Left = 8
+    Top  = 8
+    Width = 100
+    Height = 100
+    MaxLength = 20000000
+    Font.Name = 'Courier New'
+    ReadOnly = true
+    WordWrap = false
+    ScrollBars = ssBoth
+    HideScrollBars = true
+    Visible = false
+  end
+  object SpecInfoMediaPlayer: TMediaPlayer
+    Left = 8
+    Top  = 120
+    Visible = false
+    AutoOpen = false
+  end
+  object SpecInfoSaveDialog: TSaveDialog
+    Left = 8
+    Top = 8
+    Options = [ofOverwritePrompt, ofHideReadOnly]
+  end
+end

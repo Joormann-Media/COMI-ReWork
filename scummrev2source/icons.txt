@@ -1,0 +1,13 @@
+TRNS      Transparency...? A window without frame?
+AKHD      COST + "i"
+SAVE      A diskette (like the save icon in most applications)
+DRSC      table + SCRP
+DSOU      table + sound
+AHDR      ANIM + "i"
+MCMP      Flash + table
+FYEK      Keyframe... A key
+MAT       Material...
+.KEY      FYEK on folder
+.BM       IMAG on folder
+.SET      ???
+

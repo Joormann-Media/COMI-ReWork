@@ -1,0 +1,132 @@
+object AboutBox: TAboutBox
+  Left = 130
+  Top = 9
+  BorderStyle = bsDialog
+  Caption = 'About SCUMM Revisited'
+  ClientHeight = 420
+  ClientWidth = 379
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  KeyPreview = true
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  OnCreate = FormCreate
+  OnHide = FormHide
+  object AboutPanel: TPanel
+    Left = 6
+    Top = 8
+    Width = 367
+    Height = 408
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
+    ParentColor = True
+    TabOrder = 0
+    object VersionLabel: TVersionLabel
+      Left = 8
+      Top = 208
+      Width = 345
+      Height = 13
+      VersionResource = vrFileVersion
+      VersionResourceKey = 'FileVersion'
+      InfoPrefix = 'Version'
+      ShowInfoPrefix = True
+      LangCharset = '-1'
+      AutoSize = False
+      Alignment = taCenter
+    end
+    object AuthorLabel: TLabel
+      Left = 8
+      Top = 225
+      Width = 345
+      Height = 17
+      Alignment = taCenter
+      AutoSize = False
+      Caption =
+        'by Jimmi Thøgersen (Serge) from an original program by Peter Kel' +
+        'ly'
+      WordWrap = True
+    end
+    object GraphicsLabel: TLabel
+      Left = 8
+      Top = 245
+      Width = 345
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption =
+        'Logo by Robert Kjettrup (Rob), Icons by Andrew Langley (telarium)'
+    end
+    object CopyrightLabel: TLabel
+      Left = 8
+      Top = 260
+      Width = 345
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Copyright (c) 1998-1999 Waiting Worlds/HighLand Productions'
+    end
+    object ThanksLabel: TLabel
+      Left = 8
+      Top = 275
+      Width = 345
+      Height = 41
+      Alignment = taCenter
+      AutoSize = False
+      Caption =
+        'A full list of acknowledgements and thanks can be found in the ' +
+        'help file.'
+      WordWrap = True
+    end
+    object DisclaimerLabel: TLabel
+      Left = 8
+      Top = 296
+      Width = 345
+      Height = 41
+      Alignment = taCenter
+      AutoSize = False
+      Caption =
+        'The LucasArts Logo is a registered trademark of LucasArts Entert' +
+        'ainment Company. iMUSE is a trademark of LucasArts Entertainment' +
+        ' Company. iMUSE U.S. Patent No. 5,315,057'
+      WordWrap = True
+    end
+    object WebpageLabel: TLabel
+      Left = 8
+      Top = 345
+      Width = 345
+      Height = 13
+      AutoSize = False
+      Alignment = taCenter
+      Font.Color = clBlue
+      Font.Style = [fsUnderline]
+      Caption = 'http://www.mixnmojo.com/scumm/scummrev'
+      Cursor = crHandPoint
+      OnClick = WebPageLabelClick
+    end
+    object Image1: TGIFImage
+      Left = 10
+      Top = 8
+      Width = 345
+      Height = 193
+      Animate = false
+      Loop = false
+    end
+  end
+  object OKButton: TButton
+    Left = 151
+    Top = 382
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+    OnClick = OKButtonClick
+  end
+end
