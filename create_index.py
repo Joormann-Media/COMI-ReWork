@@ -1,12 +1,15 @@
 """Generate a room index from a SCUMM resource file.
 
-The tool looks for ``LOFF`` and optionally ``RNAM`` chunks inside the given file
-and writes a text listing with pairs of ``ROOM-ID`` and ``ROOM-NAME`` entries.
+The tool looks for ``LOFF`` and ``RNAM`` chunks and, if available, an
+``RCNE`` chunk that stores translated strings.  The resulting text index
+lists ``ROOM-ID``, ``ROOM-NAME`` and optionally ``ROOM-CLEARNAME`` entries.
 """
 
 import argparse
 import struct
 from pathlib import Path
+
+XOR_RCNE = 0xDD
 
 
 def _get_chunk_offset(data: bytes, tag: str) -> int:
@@ -66,18 +69,43 @@ def parse_rnam(data: bytes) -> list[str]:
     return names
 
 
+def parse_rcne(data: bytes) -> dict[str, str]:
+    """Return a mapping from room names to clear names if an RCNE chunk exists."""
+
+    offset = _get_chunk_offset(data, "RCNE")
+    if offset == -1:
+        return {}
+
+    size = _read_u32_be(data, offset + 4)
+    start = offset + 8
+    raw = data[start : start + size]
+    decrypted = bytes(b ^ XOR_RCNE for b in raw)
+    text = decrypted.decode("utf-8", errors="replace")
+
+    mapping: dict[str, str] = {}
+    for line in text.splitlines():
+        if "=" in line:
+            key, val = line.split("=", 1)
+            mapping[key.strip()] = val.strip()
+    return mapping
+
+
 def build_index(file: Path) -> str:
     """Return text for the room index read from *file*."""
 
     data = file.read_bytes()
     rooms = parse_loff(data)
     names = parse_rnam(data)
+    clearnames = parse_rcne(data)
 
     lines: list[str] = []
     for idx, (room_id, _) in enumerate(rooms):
         name = names[idx] if idx < len(names) else f"room_{room_id}"
+        clear = clearnames.get(name, "")
         lines.append(f"ROOM-ID: {room_id}")
         lines.append(f"ROOM-NAME: {name}")
+        if clear:
+            lines.append(f"ROOM-CLEARNAME: {clear}")
         lines.append("")
     return "\n".join(lines)
 
